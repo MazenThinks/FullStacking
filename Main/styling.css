@@ -1,14 +1,16 @@
-body {
-    background-color: aquamarine;
-  }
+@media (max-width: 318px) {
+    body {
+        background-color: black;
+    }
+}
 
-@media (min-width: 319px) and (max-width: 480) {
+@media (min-width: 319px) and (max-width: 480px) {
     body {
         background-color: lightsalmon;
     }
 }
 
-@media (min-width: 481px) and (max-width: 1200) {
+@media (min-width: 481px) and (max-width: 1200px) {
     body {
         background-color: powderblue;
     }
