@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- TODO
-1. Make both paragraph elements wrap around the image.
-2. Use Float to move the cat div to the left and the dog div to the right.
-3. Use clear to make the footer go below both the cat and dog div. -->
-
 <head>
   <meta charset="UTF-8">
   <title>CSS Float</title>
-  <link rel="stylesheet" href="styling.css">
+  <style>
+    div {
+      display: inline-block;
+      width: 40%;
+    }
+
+    p {
+      font-size: 2em;
+    }
+
+    .cat {
+      float: left;
+      background-color: aquamarine;
+    }
+
+    .dog {
+      float: right;
+      background-color: coral;
+    }
+
+    img {
+      float: left;
+    }
+
+    footer {
+      clear: both;
+      text-align: center;
+      background-color: blueviolet;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,8 +46,9 @@
       toy
       mouse squeak roll over. Mesmerizing birds. Poop on grasses licks paws destroy couch intently sniff hand. The dog
       smells
-      bad gnaw.</p>
+      bad gnaw the corn cob.</p>
   </div>
+
   <div class="dog">
     <h2>DogCSS</h2>
     <img src="dog.jpeg" alt="dogs in a box" />

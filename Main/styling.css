@@ -1,52 +1,29 @@
-/* 
-Goal 1
-p {
-  color: white;
-}
+div {
+    display: inline-block;
+    width: 40%;
+  }
 
-.red {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: red;
-}
+  p {
+    font-size: 2em;
+  }
 
-.green {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: green;
-}
+.cat {
+    background-color: aquamarine;
+    float: left;
+  }
 
-.blue {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: blue;
-} */
+.dog {
+    background-color: coral;
+    float: right;
+  }
 
-/* Goal 2 */
-p {
-  color: white;
-}
+footer {
+    text-align: center;
+    background-color: blueviolet;
+    clear: both;
+  }
 
-.red {
-  display: block;
-  width: 200px;
-  height: 200px;
-  background-color: red;
-}
+img {
+    float: left;
 
-.green {
-  display: block;
-  width: 200px;
-  height: 200px;
-  background-color: green;
-}
-
-.blue {
-  display: block;
-  width: 200px;
-  height: 200px;
-  background-color: blue;
-}
+  }
