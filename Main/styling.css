@@ -1,29 +1,27 @@
-div {
-    display: inline-block;
-    width: 40%;
-  }
-
-  p {
-    font-size: 2em;
-  }
-
-.cat {
+body {
     background-color: aquamarine;
-    float: left;
   }
 
-.dog {
-    background-color: coral;
-    float: right;
-  }
+@media (min-width: 319px) and (max-width: 480) {
+    body {
+        background-color: lightsalmon;
+    }
+}
 
-footer {
-    text-align: center;
-    background-color: blueviolet;
-    clear: both;
-  }
+@media (min-width: 481px) and (max-width: 1200) {
+    body {
+        background-color: powderblue;
+    }
+}
 
-img {
-    float: left;
+@media (min-width: 1201px) and (max-width: 1600px) {
+    body {
+        background-color: limegreen;
+    }
+}
 
-  }
+@media (min-width: 1601px) {
+    body {
+        background-color: seagreen;
+    }
+}
