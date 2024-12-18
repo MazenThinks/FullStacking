@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto+Slab:wght@100..900&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  font-family: 'Roboto Slab';
+  background-color: #faf9f6;
+}
+
+.main {
+  text-align: justify;
+  flex: 1;
+}
+
+/* logo */
+.image {
+  margin-left: 20px;
+}
+
+/* title */
+.title p {
+  font-size: 100px;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-weight: bolder;
+  font-family: 'Caveat';
+}
+
+.creative {
+  color: blueviolet;
+  font-weight: 300;
+}
+
+/* left tiles */
+.left {
+  width: 45%;
+  float: left;
+}
+
+.left img {
+  float: left;
+  height: 200px;
+  width: 300px;
+  margin-right: 30px;
+}
+
+/* right tile */
+.right {
+  width: 45%;
+  float: right;
+}
+
+.right img {
+  float: left;
+  height: 200px;
+  width: 300px;
+  margin-right: 30px;
+}
+
+/* title */
+.imgtitle {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+
+/* footer */
+.footer p {
+  margin-top: 150px;
+  float: right;
+}
+
+
+@media (max-width: 680px) {
+
+  .right img {
+    height: 100px;
+    width: 200px;
+  }
+
+  .left img {
+    height: 100px;
+    width: 200px;
+  }
+
+  .footer p {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .title p {
+    text-align: center;
+  }
+}
