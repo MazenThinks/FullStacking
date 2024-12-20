@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Meow+Script&family=Pacifico&family=Sniglet:wght@400;800&display=swap');
+
+body {
+    background-color: rgb(54, 54, 54);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.flex1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+
+.title {
+    color: white;
+    font-weight: bolder;
+    font-family: Caveat;
+    font-size: 30px;
+    text-align: center;
+
+}

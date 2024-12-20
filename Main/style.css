@@ -1,11 +1,10 @@
 body {
-    background-color: aliceblue;
     margin: 20px;
 }
 
-.flex-container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.div {
+    color: white;
+    background-color: seagreen;
+    height: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.432);
 }
