@@ -1,10 +1,5 @@
-body {
-    margin: 20px;
-}
-
-.div {
-    color: white;
-    background-color: seagreen;
-    height: 50px;
-    border: 2px solid rgba(0, 0, 0, 0.432);
+.feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .75rem;
 }
