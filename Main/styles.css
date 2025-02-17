@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Delius+Swash+Caps&family=Meow+Script&family=Mr+Dafoe&family=Pacifico&family=Sniglet:wght@400;800&family=Yellowtail&display=swap');
+
+body {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  text-align: center;
+  font-family: 'Delius Swash Caps';
+}
+
+.title {
+  text-align: center;
+  margin: 50px;
+  font-size: 100px;
+} 
+
+.dice {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+}
+
+.dice1 {
+  /* background-color: red; */
+  width: 400px;
+  height: 400px;
+}
+
+.dice2 {
+  /* background-color: red; */
+  width: 400px;
+  height: 400px;
+}
+
+.btnroll {
+  margin-top: 150px;
+  height: 70px;
+  width: 150px;
+  font-size: 40px;
+  text-align: center;
+}
