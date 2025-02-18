@@ -1,43 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Delius+Swash+Caps&family=Meow+Script&family=Mr+Dafoe&family=Pacifico&family=Sniglet:wght@400;800&family=Yellowtail&display=swap');
-
 body {
-  background-color: rgb(39, 39, 39);
-  color: white;
   text-align: center;
-  font-family: 'Delius Swash Caps';
+  background-color: #283149;
 }
 
-.title {
-  text-align: center;
-  margin: 50px;
-  font-size: 100px;
-} 
-
-.dice {
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
+h1 {
+  font-size: 5rem;
+  color: #DBEDF3;
+  font-family: "Arvo", cursive;
+  text-shadow: 3px 0 #DA0463;
 
 }
 
-.dice1 {
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
+footer {
+  color: #DBEDF3;
+  font-family: sans-serif;
 }
 
-.dice2 {
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
+.w {
+  background-image: url(images/tom1.png);
 }
 
-.btnroll {
-  margin-top: 150px;
-  height: 70px;
+.a {
+  background-image: url(images/tom2.png);
+}
+
+.s {
+  background-image: url(images/tom3.png);
+}
+
+.d {
+  background-image: url(images/tom4.png);
+}
+
+.j {
+  background-image: url(images/snare.png);
+}
+
+.k {
+  background-image: url(images/crash.png);
+}
+
+.l {
+  background-image: url(images/kick.png);
+}
+
+.set {
+  margin: 10% auto;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
+  opacity: 0.5;
+}
+
+.red {
+  color: red;
+}
+
+.drum {
+  outline: none;
+  border: 10px solid #404B69;
+  font-size: 5rem;
+  font-family: 'Arvo', cursive;
+  line-height: 2;
+  font-weight: 900;
+  color: #DA0463;
+  text-shadow: 3px 0 #DBEDF3;
+  border-radius: 15px;
+  display: inline-block;
   width: 150px;
-  font-size: 40px;
+  height: 150px;
   text-align: center;
+  margin: 10px;
+  background-color: white;
 }
