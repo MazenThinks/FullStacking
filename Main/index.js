@@ -1,73 +1,155 @@
-var n = document.querySelectorAll(".drum").length;
+$(document).keydown(function () {
+  $("#level-title").html("Level 1");
+});
+var n1 = Math.random();
+n1 = n1 * 4;
+n1 = Math.floor(n1) + 1;
 
-for (var i = 0; i < n; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-    
-    var buttonInnerHTML = this.innerHTML;
+var n2 = Math.random();
+n2 = n2 * 4;
+n2 = Math.floor(n2) + 1;
 
-    makeSound(buttonInnerHTML);
+var n3 = Math.random();
+n3 = n3 * 4;
+n3 = Math.floor(n3) + 1;
 
-    buttonAnimaton(buttonInnerHTML);
+var n4 = Math.random();
+n4 = n4 * 4;
+n4 = Math.floor(n4) + 1;
 
-  });
+var greenAudio = new Audio("sounds/green.mp3");
+var blueAudio = new Audio("sounds/blue.mp3");
+var yellowAudio = new Audio("sounds/yellow.mp3");
+var redAudio = new Audio("sounds/red.mp3");
 
-}
-
-document.addEventListener("keydown", function(event) {
-  makeSound(event.key);
-  buttonAnimaton(event.key);
-})
-
-function makeSound(key) {
-
-  switch (key) {
-    case "w":
-      var tom1 = new Audio("sounds/tom-1.mp3");
-      tom1.play();
-      break;
-
-    case "a":
-      var tom2 = new Audio("sounds/tom-2.mp3");
-      tom2.play();
-      break;
-
-    case "s":
-      var tom3 = new Audio("sounds/tom-3.mp3");
-      tom3.play();
-      break;
-      
-    case "d":
-      var tom4 = new Audio("sounds/tom-4.mp3");
-      tom4.play();
-      break;
-
-    case "j":
-      var snare = new Audio("sounds/snare.mp3");
-      snare.play();
-      break;
-
-    case "k":
-      var crash = new Audio("sounds/crash.mp3");
-      crash.play();
-      break;
-
-    case "l":
-      var kick = new Audio("sounds/kick-bass.mp3");
-      kick.play();
-      break;
-
-    default: console.log(buttonInnerHTML);
-      break;
+function level1() {
+  if (n1 == 1) {
+    green();
+  } else if (n1 == 2) {
+    red();
+  } else if (n1 == 3) {
+    blue();
+  } else if (n1 == 4) {
+    yellow();
   }
 }
 
-function buttonAnimaton(currentKey) {
-  var activeButton = document.querySelector("." + currentKey);
+function level2() {
+  if (n2 == 1) {
+    green();
+  } else if (n2 == 2) {
+    red();
+  } else if (n2 == 3) {
+    blue();
+  } else if (n2 == 4) {
+    yellow();
+  }
+}
 
-  activeButton.classList.add("pressed");
+function level3() {
+  if (n3 == 1) {
+    green();
+  } else if (n3 == 2) {
+    red();
+  } else if (n3 == 3) {
+    blue();
+  } else if (n3 == 4) {
+    yellow();
+  }
+}
 
-  setTimeout(function() {
-    activeButton.classList.remove("pressed");
-  }, 200)
+function level4() {
+  if (n4 == 1) {
+    green();
+  } else if (n4 == 2) {
+    red();
+  } else if (n4 == 3) {
+    blue();
+  } else if (n4 == 4) {
+    yellow();
+  }
+}
 
+function green() {
+  $("#green").animate(
+    {
+      opacity: "0",
+    },
+    "fast"
+  );
+  $("#green").animate(
+    {
+      opacity: "1",
+    },
+    "fast"
+  );
+
+  greenAudio.play();
+}
+
+function yellow() {
+  $("#yellow").animate(
+    {
+      opacity: "0",
+    },
+    "fast"
+  );
+  $("#yellow").animate(
+    {
+      opacity: "1",
+    },
+    "fast"
+  );
+
+  yellowAudio.play();
+}
+
+function red() {
+  $("#red").animate(
+    {
+      opacity: "0",
+    },
+    "fast"
+  );
+  $("#red").animate(
+    {
+      opacity: "1",
+    },
+    "fast"
+  );
+
+  redAudio.play();
+}
+
+function blue() {
+  $("#blue").animate(
+    {
+      opacity: "0",
+    },
+    "fast"
+  );
+  $("#blue").animate(
+    {
+      opacity: "1",
+    },
+    "fast"
+  );
+
+  blueAudio.play();
+}
+
+function greenClick() {
+  $("#green").click(green);
+}
+
+function redClick() {
+  $("#red").click(red);
+}
+
+function yellowClick() {
+  $("#yellow").click(yellow);
+}
+
+function blueClick() {
+  $("#blue").click(blue);
 }
