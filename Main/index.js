@@ -1,12 +1,5 @@
-const fs = require("fs");
+import { randomSuperhero } from "superheroes";
 
-// fs.readFile("message.txt", "Fuck You", (err) => {
-//   if (err) {
-//     console.error(err);
-//   }
-// });
+var name = randomSuperhero();
 
-fs.readFile("message.txt", "utf8", (err, data) => {
-  if (err) throw err;
-  console.log(data);
-});
+console.log(`My name is ${name}.`);
