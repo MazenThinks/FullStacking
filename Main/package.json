@@ -1,5 +1,5 @@
 {
-  "name": "testing__",
+  "name": "qrcode",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "superheroes": "^4.0.0"
+    "inquirer": "^12.4.2",
+    "qr-image": "^3.2.0"
   }
 }
