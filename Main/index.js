@@ -3,37 +3,41 @@ import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 const app = express();
 const port = 3000;
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var userIsAuthorised = false;
-
-function passcheck(req, res, next) {
-  const pass = "Yoo";
-  var userpass = req.body["password"];
-  if (userpass === pass) {
-    userIsAuthorised = true;
-  }
-  next();
-}
-app.use(passcheck);
-
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
-});
+  const d = new Date();
+  const day = d.getDay();
+  const cday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-app.post("/check", (req, res) => {
-  if (userIsAuthorised == true) {
-    res.sendFile(__dirname + "/public/secret.html");
+  let dayy = "";
+  let advicee = "";
+
+  if (day >= 5) {
+    (dayy = cday[day]), (advicee = "its time to work hard");
   } else {
-    res.redirect("/");
+    (dayy = cday[day]), (advicee = "its time to relax");
   }
+
+  res.render("index.ejs", {
+    dayType: dayy,
+    advice: advicee,
+  });
 });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`listening on port ${port}`);
 });
