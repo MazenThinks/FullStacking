@@ -1,25 +1,41 @@
-<!-- Step 3 Add Header -->
 <!DOCTYPE html>
 <html>
-  <%- include("partials/header.ejs") %> <% if (locals.name) { %>
+  <head>
+    <title>Taco Recipes</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css" />
+  </head>
+
   <body>
-    <main>
-      <h1><%= name %></h1>
+    <h1>Taco Town 🌮</h1>
+
+    <form action="/recipe" method="POST" class="buttons">
+      <button type="submit" value="chicken" name="choice">🍗</button>
+      <button type="submit" value="beef" name="choice">🥩</button>
+      <button type="submit" value="fish" name="choice">🐟</button>
+    </form>
+    <div id="recipeContainer" class="hidden">
+      <% if (locals.recipe) { %>
+      <h2><%= recipe.name %></h2>
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList">
+        <li>
+          <%= recipe.ingredients.protein.name %> , <%=
+          recipe.ingredients.protein.preparation %>
+        </li>
+        <li>
+          <%= recipe.ingredients.salsa.name %> , <%=
+          recipe.ingredients.salsa.spiciness %>
+        </li>
+        <% recipe.ingredients.toppings.forEach(topping => { %>
+        <li><%= topping.quantity %> of <%= topping.name %></li>
+        <% }) %>
+      </ul>
       <% } else { %>
-      <h1>Press the button NOW</h1>
+      <h2>Pick your favourite taco ingredient 👆</h2>
       <% } %>
 
-      <!-- Step 2 - If an adjective and noun are sent to this ejs file, 
-    Change the h1 to show the adjective and noun.
-    But when the user first goes on the website and there is no adjective and noun, 
-    Show the default h1 below -->
-
-      <form action="/submit" method="POST">
-        <input type="submit" value="Generate Name" />
-      </form>
-    </main>
-
-    <!-- Step 3 Add Footer -->
-    <%- include("partials/footer.ejs") %>
+      <!-- If no recipe yet, show: -->
+      <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+    </div>
   </body>
 </html>
