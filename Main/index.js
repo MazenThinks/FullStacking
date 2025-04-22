@@ -1,37 +1,56 @@
 import express from "express";
 import bodyParser from "body-parser";
+import axios from "axios";
 
 const app = express();
 const port = 3000;
 
-const recipeJSON =
-  '[{"id": "0001","type": "taco","name": "Chicken Taco","price": 2.99,"ingredients": {"protein": {"name": "Chicken","preparation": "Grilled"},  "salsa": {"name": "Tomato Salsa","spiciness": "Medium"},  "toppings": [{"name": "Lettuce",  "quantity": "1 cup",  "ingredients": ["Iceberg Lettuce"]  },      {"name": "Cheese",  "quantity": "1/2 cup",  "ingredients": ["Cheddar Cheese", "Monterey Jack Cheese"]  },      {"name": "Guacamole",  "quantity": "2 tablespoons",  "ingredients": ["Avocado", "Lime Juice", "Salt", "Onion", "Cilantro"]  },      {"name": "Sour Cream",  "quantity": "2 tablespoons",  "ingredients": ["Sour Cream"]  }      ]    }  },{"id": "0002","type": "taco","name": "Beef Taco","price": 3.49,"ingredients": {"protein": {"name": "Beef","preparation": "Seasoned and Grilled"},  "salsa": {"name": "Salsa Verde","spiciness": "Hot"},  "toppings": [{"name": "Onions",  "quantity": "1/4 cup",  "ingredients": ["White Onion", "Red Onion"]  },      {"name": "Cilantro",  "quantity": "2 tablespoons",  "ingredients": ["Fresh Cilantro"]  },      {"name": "Queso Fresco",  "quantity": "1/4 cup",  "ingredients": ["Queso Fresco"]  }      ]    }  },{"id": "0003","type": "taco","name": "Fish Taco","price": 4.99,"ingredients": {"protein": {"name": "Fish","preparation": "Battered and Fried"},  "salsa": {"name": "Chipotle Mayo","spiciness": "Mild"},  "toppings": [{"name": "Cabbage Slaw",  "quantity": "1 cup",  "ingredients": [    "Shredded Cabbage",    "Carrot",    "Mayonnaise",    "Lime Juice",    "Salt"          ]  },      {"name": "Pico de Gallo",  "quantity": "1/2 cup",  "ingredients": ["Tomato", "Onion", "Cilantro", "Lime Juice", "Salt"]  },      {"name": "Lime Crema",  "quantity": "2 tablespoons",  "ingredients": ["Sour Cream", "Lime Juice", "Salt"]  }      ]    }  }]';
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let data;
-
-app.get("/", (req, res) => {
-  res.render("index.ejs", {
-    recipe: data,
-  });
+// Step 1: Make sure that when a user visits the home page,
+//   it shows a random activity.You will need to check the format of the
+//   JSON data from response.data and edit the index.ejs file accordingly.
+app.get("/", async (req, res) => {
+  try {
+    const response = await axios.get("https://bored-api.appbrewery.com/random");
+    const result = response.data;
+    res.render("index.ejs", { data: result });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("index.ejs", {
+      error: error.message,
+    });
+  }
 });
 
-app.post("/recipe", (req, res) => {
-  switch (req.body.choice) {
-    case "chicken":
-      data = JSON.parse(recipeJSON)[0];
-      break;
-    case "beef":
-      data = JSON.parse(recipeJSON)[1];
-      break;
-    case "fish":
-      data = JSON.parse(recipeJSON)[2];
-      break;
-    default:
+app.post("/", async (req, res) => {
+  try {
+    console.log(req.body);
+
+    const type = req.body.type;
+    const participants = req.body.participants;
+    const response = await axios.get(
+      `https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`
+    );
+    const result = response.data;
+    res.render("index.ejs", {
+      data: result[Math.floor(Math.random() * result.length)],
+    });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("index.ejs", {
+      error: "No activities that match your criteria.",
+    });
   }
-  res.redirect("/");
+  // Step 2: Play around with the drop downs and see what gets logged.
+  // Use axios to make an API request to the /filter endpoint. Making
+  // sure you're passing both the type and participants queries.
+  // Render the index.ejs file with a single *random* activity that comes back
+  // from the API request.
+  // Step 3: If you get a 404 error (resource not found) from the API request.
+  // Pass an error to the index.ejs to tell the user:
+  // "No activities that match your criteria."
 });
 
 app.listen(port, () => {
