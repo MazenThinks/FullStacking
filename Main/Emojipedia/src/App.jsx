@@ -3,21 +3,32 @@ import Title from "./components/Title.jsx";
 import Card from "./components/Card.jsx";
 import emojipedia from "./components/EmojiPedia.jsx";
 
-function CardsLooping(emojipedia) {
+// function CardsLooping(emojipedia) {
+//   return (
+//     <Card
+//       emoji={emojipedia.emoji}
+//       emojiName={emojipedia.name}
+//       emojiMeaning={emojipedia.meaning}
+//     />
+//   );
+// }
+
+const CardsLooping = emojipedia.map((emoji) => {
   return (
     <Card
-      emoji={emojipedia.emoji}
-      emojiName={emojipedia.name}
-      emojiMeaning={emojipedia.meaning}
+      key={emoji.id}
+      emoji={emoji.emoji}
+      emojiName={emoji.name}
+      emojiMeaning={emoji.meaning}
     />
   );
-}
+});
 
 function App() {
   return (
     <>
       <Title />
-      <div className="row">{emojipedia.map(CardsLooping)}</div>
+      <div className="row">{CardsLooping}</div>
     </>
   );
 }
