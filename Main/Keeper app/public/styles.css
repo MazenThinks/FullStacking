@@ -41,8 +41,8 @@ body {
 }
 
 .note {
-  width: 250px;
-  height: 80px;
+  width: 280px;
+  height: auto;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
@@ -53,4 +53,19 @@ body {
   font-size: 1.1em;
   padding-top: 10px;
   margin-left: 20px;
+}
+
+.notexth1 {
+  font-weight: 600;
+  text-decoration: underline red;
+}
+
+.notextp {
+  font-weight: 300;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
