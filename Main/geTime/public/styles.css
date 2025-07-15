@@ -1,0 +1,33 @@
+body {
+  font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+  background-color: rgb(55, 72, 84);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.Button {
+  background-color: rgb(106, 192, 144);
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 90px;
+  color: white;
+  transition-duration: 0.4s;
+  margin: 10px;
+  font-weight: 800;
+}
+
+.title {
+  color: white;
+  font-size: 150px;
+  margin: 70px;
+}
+
+.Button:hover {
+  background-color: white;
+  color: rgb(106, 192, 144);
+  cursor: pointer;
+}
